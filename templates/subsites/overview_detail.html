@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}{{ subsite.title }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal"><h1>{{ subsite.title }}</h1><p>{{ subsite.summary }}</p><ul>{% for page in pages %}<li><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></li>{% endfor %}</ul></div>
+{% endblock %}

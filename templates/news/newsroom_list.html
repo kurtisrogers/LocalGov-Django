@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}News | {{ site_config.site_name }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal news">
+  <h1>News</h1>
+  <ul>{% for newsroom in newsrooms %}<li><a href="{{ newsroom.get_absolute_url }}">{{ newsroom.title }}</a></li>{% endfor %}</ul>
+</div>
+{% endblock %}

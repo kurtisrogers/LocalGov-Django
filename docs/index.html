@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LocalGov Django — Open source publishing for local government</title>
+  <meta name="description" content="A Django port of LocalGov Drupal. Same styling, same features, built for developers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      --color-accent: #652c95;
+      --color-accent-2: #ffe146;
+      --color-link: var(--color-accent);
+      --color-focus: var(--color-yellow, #fd0);
+      --color-white: #fff;
+      --color-grey-lightest: #f9f9f9;
+      --color-grey-lighter: #eaeaea;
+      --color-grey-dark: #505a5f;
+      --color-black: #0b0c0c;
+      --font-primary: roboto, oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      --font-secondary: georgia, "Times New Roman", times, serif;
+      --spacing: 1rem;
+      --width-container: 73.75rem;
+      margin: 0;
+      font-family: var(--font-primary);
+      color: var(--color-black);
+      line-height: 1.5;
+      background: var(--color-white);
+    }
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: var(--spacing);
+      background: var(--color-focus);
+    }
+    .lgd-container {
+      max-width: var(--width-container);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+    }
+    .banner {
+      background: var(--color-accent);
+      color: var(--color-white);
+      padding: calc(var(--spacing) * 3) 0;
+    }
+    .banner h1 {
+      font-family: var(--font-secondary);
+      font-size: 2.5rem;
+      margin: 0 0 var(--spacing);
+    }
+    .banner p {
+      font-size: 1.25rem;
+      max-width: 40rem;
+      margin: 0;
+    }
+    .banner__cta {
+      margin-top: calc(var(--spacing) * 2);
+      display: flex;
+      gap: var(--spacing);
+      flex-wrap: wrap;
+    }
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--color-accent-2);
+      color: var(--color-black);
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 4px;
+    }
+    .button--secondary {
+      background: transparent;
+      color: var(--color-white);
+      border: 2px solid var(--color-white);
+    }
+    section {
+      padding: calc(var(--spacing) * 3) 0;
+    }
+    section:nth-child(even) {
+      background: var(--color-grey-lightest);
+    }
+    h2 {
+      font-family: var(--font-secondary);
+      color: var(--color-accent);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      gap: calc(var(--spacing) * 1.5);
+    }
+    .feature-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-grey-lighter);
+      border-radius: 4px;
+      padding: calc(var(--spacing) * 1.5);
+    }
+    .feature-card h3 {
+      margin-top: 0;
+      color: var(--color-accent);
+    }
+    a { color: var(--color-link); }
+    footer {
+      background: var(--color-grey-dark);
+      color: var(--color-white);
+      padding: calc(var(--spacing) * 2) 0;
+      text-align: center;
+    }
+    footer a { color: var(--color-accent-2); }
+    code {
+      background: var(--color-grey-lighter);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="banner">
+    <div class="lgd-container">
+      <h1>LocalGov Django</h1>
+      <p>A complete Django port of <a href="https://localgovdrupal.org/" style="color: var(--color-accent-2);">LocalGov Drupal</a> — the open source publishing platform built by UK councils for better digital services.</p>
+      <div class="banner__cta">
+        <a class="button" href="https://github.com/kurtisrogers/LocalGov-Django">View on GitHub</a>
+        <a class="button button--secondary" href="https://docs.localgovdrupal.org/">LocalGov Drupal docs</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section>
+      <div class="lgd-container">
+        <h2>Built for developers</h2>
+        <p>LocalGov Django replicates the LocalGov Drupal distribution using Django best practices — modular apps, class-based views, comprehensive tests, and the exact same LocalGov Base theme styling.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="lgd-container">
+        <h2>Features</h2>
+        <div class="features">
+          <div class="feature-card">
+            <h3>Services</h3>
+            <p>Service landing pages, sub-landing pages, service pages, and service status updates.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Directories</h3>
+            <p>Searchable directory channels with facets, organisations, venues, and pages.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Guides &amp; Step by step</h3>
+            <p>Multi-page guides and sequential step-by-step processes with navigation.</p>
+          </div>
+          <div class="feature-card">
+            <h3>News &amp; Events</h3>
+            <p>Newsrooms with featured articles, categories, and event listings.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Subsites &amp; Alerts</h3>
+            <p>Subsite overviews with child pages and site-wide alert banners.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Sitewide search</h3>
+            <p>Search across all content types from a single search interface.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lgd-container">
+        <h2>Quick start</h2>
+        <pre><code>git clone https://github.com/kurtisrogers/LocalGov-Django.git
+cd LocalGov-Django
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py load_sample_content
+python manage.py runserver</code></pre>
+        <p>Visit <code>http://localhost:8000</code> to see the demo site with sample council content.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="lgd-container">
+        <h2>Testing</h2>
+        <p>Unit tests and Playwright BDD scenarios are included:</p>
+        <pre><code>pytest                    # Run all tests
+pytest tests/ -k "not bdd"  # Unit tests only
+pytest tests/bdd/           # Playwright BDD tests</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="lgd-container">
+      <p>LocalGov Django is an open source project inspired by <a href="https://localgovdrupal.org/">LocalGov Drupal</a>.</p>
+      <p><a href="https://github.com/kurtisrogers/LocalGov-Django">GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

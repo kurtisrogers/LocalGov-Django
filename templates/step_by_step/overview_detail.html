@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ overview.title }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal step-by-step">
+  <h1>{{ overview.title }}</h1>
+  <p>{{ overview.summary }}</p>
+  <ol class="step-list">{% for step in steps %}<li><a href="{{ step.get_absolute_url }}"><span class="step-list__number">{{ step.step_number }}</span> {{ step.title }}</a></li>{% endfor %}</ol>
+</div>
+{% endblock %}

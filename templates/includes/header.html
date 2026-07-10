@@ -1,0 +1,69 @@
+<header class="lgd-header">
+  <div class="lgd-container">
+    <div class="lgd-row">
+      <div class="lgd-row__full">
+        <div class="lgd-header__inner">
+          <div class="lgd-region lgd-region--header">
+            <a href="{% url 'pages:home' %}" class="site-name">
+              <span class="site-name__text">{{ site_config.council_name }}</span>
+            </a>
+          </div>
+
+          <div class="lgd-header__toggles">
+            {% if secondary_menu %}
+              <button
+                class="lgd-header__toggle lgd-header__toggle--secondary"
+                data-target="lgd-header__nav--secondary"
+                aria-controls="lgd-header__nav--secondary"
+                aria-expanded="false"
+                aria-label="Services: jump to services"
+              >
+                <span class="lgd-header__toggle-text lgd-header__toggle-text--secondary">Services</span>
+                <span class="lgd-header__toggle-icon lgd-header__toggle-icon--secondary"></span>
+              </button>
+            {% endif %}
+
+            <button
+              class="lgd-header__toggle lgd-header__toggle--primary"
+              data-target="lgd-header__nav--primary"
+              aria-controls="lgd-header__nav--primary"
+              aria-expanded="false"
+            >
+              <span class="lgd-header__toggle-text lgd-header__toggle-text--primary">Menu</span>
+              <span class="lgd-header__toggle-icon lgd-header__toggle-icon--primary"></span>
+            </button>
+          </div>
+
+          <div id="lgd-header__nav--primary" class="lgd-header__nav lgd-header__nav--primary">
+            <nav class="menu menu--main" aria-label="Main navigation">
+              <ul class="menu">
+                {% for item in primary_menu %}
+                  <li class="menu-item"><a href="{{ item.url }}">{{ item.label }}</a></li>
+                {% endfor %}
+              </ul>
+            </nav>
+            <div class="lgd-region lgd-region--search">
+              <form action="{% url 'search:sitewide' %}" method="get" role="search">
+                <label for="sitewide-search">Search</label>
+                <input type="search" id="sitewide-search" name="q" placeholder="Search">
+                <button type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+
+          {% if secondary_menu %}
+            <div id="lgd-header__nav--secondary" class="lgd-header__nav lgd-header__nav--secondary">
+              <nav class="menu menu--services" aria-label="Services">
+                <ul class="menu">
+                  {% for item in secondary_menu %}
+                    <li class="menu-item"><a href="{{ item.url }}">{{ item.label }}</a></li>
+                  {% endfor %}
+                </ul>
+              </nav>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

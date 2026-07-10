@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Directories | {{ site_config.site_name }}{% endblock %}
+
+{% block content %}
+<div class="lgd-container padding-horizontal">
+  <h1>Directories</h1>
+  <div class="lgd-row box-links">
+    {% for channel in channels %}
+      <div class="lgd-row__one-third">
+        <a class="box-link" href="{{ channel.get_absolute_url }}">
+          <h2 class="box-link__title">{{ channel.title }}</h2>
+          <p>{{ channel.summary|truncatewords:15 }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

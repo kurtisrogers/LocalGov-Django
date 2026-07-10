@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Subsites | {{ site_config.site_name }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal"><h1>Subsites</h1><ul>{% for subsite in subsites %}<li><a href="{{ subsite.get_absolute_url }}">{{ subsite.title }}</a></li>{% endfor %}</ul></div>
+{% endblock %}

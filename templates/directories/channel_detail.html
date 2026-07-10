@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ channel.title }} | Directories{% endblock %}
+
+{% block content %}
+<div class="lgd-container padding-horizontal directories">
+  <h1>{{ channel.title }}</h1>
+  <p>{{ channel.summary }}</p>
+
+  <form class="directories__search" method="get" role="search">
+    <label for="directory-search">Search this directory</label>
+    <input type="search" id="directory-search" name="q" value="{{ search_query }}">
+    <button type="submit">Search</button>
+  </form>
+
+  {% if facets %}
+    <div class="facets">
+      <h2 class="visually-hidden">Filter by</h2>
+      <ul class="facets__list">
+        <li><a href="?q={{ search_query }}" {% if not selected_facet %}aria-current="true"{% endif %}>All</a></li>
+        {% for facet in facets %}
+          <li><a href="?q={{ search_query }}&facet={{ facet.slug }}" {% if selected_facet == facet.slug %}aria-current="true"{% endif %}>{{ facet.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <h2>Results</h2>
+  <ul>
+    {% for entry in directory_pages %}
+      <li><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></li>
+    {% endfor %}
+    {% for entry in organisations %}
+      <li><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a> (Organisation)</li>
+    {% endfor %}
+    {% for entry in venues %}
+      <li><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a> (Venue)</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} | {{ page.guide.title }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal">
+  <nav class="guide-nav" aria-label="Guide navigation">
+    <a href="{{ page.guide.get_absolute_url }}">{{ page.guide.title }}</a>
+  </nav>
+  <h1>{{ page.title }}</h1>
+  <div>{{ page.body|linebreaks }}</div>
+  <nav class="guide-nav guide-nav--prev-next" aria-label="Guide page navigation">
+    {% if page.previous_page %}<a class="guide-nav__prev" href="{{ page.previous_page.get_absolute_url }}">Previous: {{ page.previous_page.title }}</a>{% endif %}
+    {% if page.next_page %}<a class="guide-nav__next" href="{{ page.next_page.get_absolute_url }}">Next: {{ page.next_page.title }}</a>{% endif %}
+  </nav>
+</div>
+{% endblock %}

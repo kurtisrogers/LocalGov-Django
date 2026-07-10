@@ -1,0 +1,30 @@
+<footer class="lgd-footer">
+  <div class="lgd-footer__pre-footer">
+    <div class="lgd-container">
+      <div class="lgd-row">
+        <div class="lgd-row__one-third">
+          <h2>{{ site_config.council_name }}</h2>
+          {% if site_config.address %}<p>{{ site_config.address|linebreaksbr }}</p>{% endif %}
+        </div>
+        <div class="lgd-row__one-third">
+          {% if site_config.primary_phone %}<p>Phone: {{ site_config.primary_phone }}</p>{% endif %}
+          {% if site_config.primary_email %}<p>Email: <a href="mailto:{{ site_config.primary_email }}">{{ site_config.primary_email }}</a></p>{% endif %}
+        </div>
+        <div class="lgd-row__one-third">
+          <nav aria-label="Footer navigation">
+            <ul class="menu">
+              {% for item in footer_menu %}
+                <li class="menu-item"><a href="{{ item.url }}">{{ item.label }}</a></li>
+              {% endfor %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lgd-footer__footer">
+    <div class="lgd-container">
+      <p>&copy; {{ site_config.council_name }}. Powered by <a href="https://github.com/kurtisrogers/LocalGov-Django">LocalGov Django</a>.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal news">
+  <article>
+    <h1>{{ article.title }}</h1>
+    <p class="news__date">{{ article.published_date|date:"j F Y" }}</p>
+    <div>{{ article.body|linebreaks }}</div>
+  </article>
+</div>
+{% endblock %}

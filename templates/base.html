@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ site_config.site_name }}{% endblock %}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'localgov_base/assets/images/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'localgov_base/assets/images/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'localgov_base/assets/images/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" href="{% static 'localgov_base/assets/images/favicons/favicon.ico' %}">
+    <meta name="theme-color" content="#ffffff">
+    {% include "includes/localgov_css.html" %}
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body class="no-js" data-mobile-breakpoint="{{ mobile_breakpoint }}">
+    <script>document.querySelector('body').classList.remove('no-js');</script>
+    <a href="#main-content" class="visually-hidden focusable skip-link">Skip to main content</a>
+    {% include "includes/alert_banners.html" %}
+    {% include "includes/header.html" %}
+    {% block banner %}{% endblock %}
+    {% block breadcrumbs %}{% endblock %}
+    <main class="main" id="main-content" tabindex="-1">
+      {% block content %}{% endblock %}
+    </main>
+    {% include "includes/back_to_top.html" %}
+    {% include "includes/footer.html" %}
+    <script src="{% static 'localgov_base/js/header-vanilla.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

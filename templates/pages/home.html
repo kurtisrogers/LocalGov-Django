@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site_config.site_name }} | {{ site_config.council_name }}{% endblock %}
+
+{% block banner %}
+<div class="banner banner--primary">
+  <div class="lgd-container">
+    <div class="banner__content">
+      <h1 class="banner__title">{{ site_config.site_name }}</h1>
+      <p class="banner__summary">{{ site_config.site_slogan|default:"Open source publishing for local government" }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="lgd-container padding-horizontal">
+  <section class="service-landing-page">
+    <h2>Council services</h2>
+    <div class="lgd-row box-links">
+      {% for service in featured_services %}
+        <div class="lgd-row__one-third">
+          <a class="box-link" href="{{ service.get_absolute_url }}">
+            <h3 class="box-link__title">{{ service.title }}</h3>
+            <p class="box-link__summary">{{ service.summary|truncatewords:20 }}</p>
+          </a>
+        </div>
+      {% empty %}
+        <p>No services published yet.</p>
+      {% endfor %}
+    </div>
+    <p><a href="{% url 'services:landing_list' %}">View all services</a></p>
+  </section>
+
+  <section class="news">
+    <h2>Latest news</h2>
+    <div class="lgd-row">
+      {% for article in latest_news %}
+        <article class="lgd-row__one-third teaser">
+          <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
+          <p class="teaser__meta">{{ article.published_date|date:"j F Y" }}</p>
+          <p>{{ article.summary|truncatewords:25 }}</p>
+        </article>
+      {% empty %}
+        <p>No news articles yet.</p>
+      {% endfor %}
+    </div>
+    <p><a href="{% url 'news:newsroom_list' %}">All news</a></p>
+  </section>
+
+  <section class="events">
+    <h2>Upcoming events</h2>
+    <ul>
+      {% for event in upcoming_events %}
+        <li><a href="{{ event.get_absolute_url }}">{{ event.title }}</a> — {{ event.start_date|date:"j F Y" }}</li>
+      {% empty %}
+        <li>No upcoming events.</li>
+      {% endfor %}
+    </ul>
+    <p><a href="{% url 'events:event_list' %}">All events</a></p>
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}{{ service.title }} | {{ site_config.site_name }}{% endblock %}
+
+{% block breadcrumbs %}
+{% include "includes/breadcrumbs.html" with breadcrumbs=breadcrumbs only %}
+{% endblock %}
+
+{% block content %}
+<div class="service-landing-page">
+  <div class="lgd-container padding-horizontal">
+    <h1>{{ service.title }}</h1>
+    {% if service.summary %}<p class="service-landing-page__summary">{{ service.summary }}</p>{% endif %}
+    <div class="service-landing-page__body">{{ service.body|linebreaks }}</div>
+  </div>
+
+  {% if statuses %}
+    <div class="service-statuses">
+      {% for status in statuses %}
+        <div class="service-status service-status--{{ status.severity }}">
+          <h2>{{ status.title }}</h2>
+          <p>{{ status.summary|default:status.body|truncatewords:30 }}</p>
+          <a href="{{ status.get_absolute_url }}">Read more</a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="lgd-container padding-horizontal">
+    {% if sub_landings %}
+      <h2>Sections</h2>
+      <div class="lgd-row box-links">
+        {% for sub in sub_landings %}
+          <div class="lgd-row__one-third">
+            <a class="box-link" href="{{ sub.get_absolute_url }}">
+              <h3 class="box-link__title">{{ sub.title }}</h3>
+              <p class="box-link__summary">{{ sub.summary|truncatewords:15 }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if pages %}
+      <h2>Pages</h2>
+      <ul>
+        {% for page in pages %}
+          <li><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

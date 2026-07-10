@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ step.title }} | {{ step.overview.title }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal step-by-step">
+  <p class="step-by-step__meta">Step {{ step.step_number }} of {{ step.overview.steps.count }}</p>
+  <h1>{{ step.title }}</h1>
+  <div>{{ step.body|linebreaks }}</div>
+  <nav class="step-by-step-nav" aria-label="Step navigation">
+    {% if step.previous_step %}<a href="{{ step.previous_step.get_absolute_url }}">Previous step</a>{% endif %}
+    {% if step.next_step %}<a href="{{ step.next_step.get_absolute_url }}">Next step</a>{% endif %}
+  </nav>
+</div>
+{% endblock %}
