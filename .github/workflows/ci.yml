@@ -26,6 +26,9 @@ jobs:
       - name: Run migrations
         run: python manage.py migrate --noinput
 
+      - name: Collect static files
+        run: python manage.py collectstatic --noinput
+
       - name: Run unit tests
         run: pytest tests/ -k "not bdd" -p no:playwright --tb=short
 
@@ -48,6 +51,9 @@ jobs:
 
       - name: Run migrations
         run: python manage.py migrate --noinput
+
+      - name: Collect static files
+        run: python manage.py collectstatic --noinput
 
       - name: Run Playwright BDD tests
         run: pytest tests/bdd/ --tb=short -p no:playwright
