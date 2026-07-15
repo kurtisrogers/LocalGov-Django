@@ -1,0 +1,13 @@
+{% if active_alerts %}
+  {% for alert in active_alerts %}
+    <div class="localgov-alert-banner localgov-alert-banner--{{ alert.alert_type }}" role="region" aria-label="Alert">
+      <div class="localgov-alert-banner__inner">
+        <div class="localgov-alert-banner__title">{{ alert.title }}</div>
+        <div class="localgov-alert-banner__body">{{ alert.summary|default:alert.body|truncatewords:30 }}</div>
+        {% if alert.link_url %}
+          <a class="localgov-alert-banner__link" href="{{ alert.link_url }}">{{ alert.link_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ newsroom.title }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal news">
+  <h1>{{ newsroom.title }}</h1>
+  {% if featured_articles %}
+    <section class="news__featured">
+      <h2>Featured</h2>
+      {% for article in featured_articles %}
+        <article class="teaser"><h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3><p>{{ article.summary|truncatewords:20 }}</p></article>
+      {% endfor %}
+    </section>
+  {% endif %}
+  <section>
+    <h2>All articles</h2>
+    {% for article in articles %}
+      <article class="teaser"><h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3><p class="teaser__meta">{{ article.published_date|date:"j F Y" }}</p></article>
+    {% endfor %}
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ entry.title }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal">
+  <h1>{{ entry.title }}</h1>
+  <div>{{ entry.body|linebreaks }}</div>
+  {% if entry.address %}<p><strong>Address:</strong> {{ entry.address|linebreaksbr }}</p>{% endif %}
+  {% if entry.opening_hours %}<p><strong>Opening hours:</strong> {{ entry.opening_hours|linebreaksbr }}</p>{% endif %}
+</div>
+{% endblock %}

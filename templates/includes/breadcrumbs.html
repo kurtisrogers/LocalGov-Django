@@ -1,0 +1,16 @@
+{% if breadcrumbs %}
+<nav class="breadcrumbs" aria-labelledby="system-breadcrumbs">
+  <h2 id="system-breadcrumbs" class="visually-hidden">Breadcrumbs</h2>
+  <ol class="breadcrumbs__list">
+    {% for item in breadcrumbs %}
+      <li class="breadcrumbs__item">
+        {% if item.url %}
+          <a class="breadcrumbs__link" href="{{ item.url }}">{{ item.text }}</a>
+        {% else %}
+          {{ item.text }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}

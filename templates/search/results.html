@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Search{% if query %}: {{ query }}{% endif %} | {{ site_config.site_name }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal sitewide-search">
+  <h1>Search</h1>
+  <form method="get" role="search">
+    <label for="search-q">Search the site</label>
+    <input type="search" id="search-q" name="q" value="{{ query }}">
+    <button type="submit">Search</button>
+  </form>
+  {% if query %}
+    <h2>Results for "{{ query }}"</h2>
+    <ul>
+      {% for result in results %}
+        <li><span class="sitewide-search__type">{{ result.type }}</span> <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a></li>
+      {% empty %}
+        <li>No results found.</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+{% endblock %}

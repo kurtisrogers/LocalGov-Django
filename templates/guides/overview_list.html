@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Guides | {{ site_config.site_name }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal">
+  <h1>Guides</h1>
+  <ul>{% for guide in guides %}<li><a href="{{ guide.get_absolute_url }}">{{ guide.title }}</a></li>{% endfor %}</ul>
+</div>
+{% endblock %}

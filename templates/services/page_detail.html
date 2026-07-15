@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ page.service.title }}{% endblock %}
+
+{% block breadcrumbs %}
+{% include "includes/breadcrumbs.html" with breadcrumbs=breadcrumbs only %}
+{% endblock %}
+
+{% block content %}
+<div class="lgd-container padding-horizontal">
+  <h1>{{ page.title }}</h1>
+  {% if page.summary %}<p class="callout">{{ page.summary }}</p>{% endif %}
+  <div class="wysiwyg">{{ page.body|linebreaks }}</div>
+</div>
+{% endblock %}

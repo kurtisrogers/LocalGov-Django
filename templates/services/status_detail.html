@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ status.title }} | {{ status.service.title }}{% endblock %}
+
+{% block breadcrumbs %}
+{% include "includes/breadcrumbs.html" with breadcrumbs=breadcrumbs only %}
+{% endblock %}
+
+{% block content %}
+<div class="lgd-container padding-horizontal">
+  <div class="service-status service-status--{{ status.severity }}">
+    <h1>{{ status.title }}</h1>
+    <div>{{ status.body|linebreaks }}</div>
+  </div>
+</div>
+{% endblock %}

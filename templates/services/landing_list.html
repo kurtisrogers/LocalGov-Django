@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Services | {{ site_config.site_name }}{% endblock %}
+
+{% block breadcrumbs %}
+{% include "includes/breadcrumbs.html" with breadcrumbs=breadcrumbs only %}
+{% endblock %}
+
+{% block content %}
+<div class="lgd-container padding-horizontal">
+  <h1>Council services</h1>
+  <div class="lgd-row box-links">
+    {% for service in services %}
+      <div class="lgd-row__one-third">
+        <a class="box-link" href="{{ service.get_absolute_url }}">
+          <h2 class="box-link__title">{{ service.title }}</h2>
+          <p class="box-link__summary">{{ service.summary|truncatewords:20 }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

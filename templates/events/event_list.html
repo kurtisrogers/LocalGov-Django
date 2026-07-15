@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Events | {{ site_config.site_name }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal events">
+  <h1>Events</h1>
+  {% for event in events %}
+    <article class="teaser"><h2><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h2><p>{{ event.start_date|date:"j F Y, H:i" }}{% if event.location %} — {{ event.location }}{% endif %}</p></article>
+  {% endfor %}
+</div>
+{% endblock %}

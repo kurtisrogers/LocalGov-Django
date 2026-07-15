@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ guide.title }}{% endblock %}
+{% block content %}
+<div class="lgd-container padding-horizontal">
+  <h1>{{ guide.title }}</h1>
+  <p>{{ guide.summary }}</p>
+  <div>{{ guide.body|linebreaks }}</div>
+  <nav class="guide-nav" aria-label="Guide contents">
+    <h2>Contents</h2>
+    <ol>{% for page in pages %}<li><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></li>{% endfor %}</ol>
+  </nav>
+</div>
+{% endblock %}
