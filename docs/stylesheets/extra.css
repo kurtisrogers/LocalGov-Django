@@ -1,0 +1,99 @@
+/* LocalGov Django docs theme — matches LocalGov Base accent colours */
+
+:root {
+  --lgd-accent: #652c95;
+  --lgd-accent-2: #ffe146;
+  --md-primary-fg-color: #652c95;
+  --md-primary-fg-color--light: #7a3aad;
+  --md-primary-fg-color--dark: #4f2277;
+  --md-accent-fg-color: #652c95;
+}
+
+/* Prevent horizontal scrolling */
+html {
+  overflow-x: hidden;
+}
+
+body,
+.md-container,
+.md-main,
+.md-content {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.md-typeset pre > code,
+.md-typeset code {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.md-typeset table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Hero section on home page */
+.lgd-hero {
+  background: linear-gradient(135deg, var(--lgd-accent) 0%, #4f2277 100%);
+  color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.lgd-hero h1 {
+  color: #fff;
+  margin-top: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.lgd-hero p {
+  font-size: 1.1rem;
+  max-width: 42rem;
+  margin-bottom: 0;
+}
+
+.lgd-hero a {
+  color: var(--lgd-accent-2);
+  font-weight: 700;
+}
+
+.lgd-cta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.lgd-cta-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  transition: border-color 0.2s;
+}
+
+.lgd-cta-card:hover {
+  border-color: var(--lgd-accent);
+}
+
+.lgd-cta-card h3 {
+  margin-top: 0;
+  color: var(--lgd-accent);
+}
+
+.lgd-status-done::before {
+  content: "✓ ";
+  color: #048a04;
+}
+
+.lgd-status-partial::before {
+  content: "◐ ";
+  color: #ed7522;
+}
+
+.lgd-status-planned::before {
+  content: "○ ";
+  color: #505a5f;
+}

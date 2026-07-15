@@ -4,7 +4,7 @@ A complete Django port of [LocalGov Drupal](https://localgovdrupal.org/) — the
 
 LocalGov Django replicates the LocalGov Drupal feature set using Django best practices, with the exact same [LocalGov Base](https://github.com/localgovdrupal/localgov_base) theme styling.
 
-**Landing page:** https://kurtisrogers.github.io/LocalGov-Django/
+**Documentation:** https://kurtisrogers.github.io/LocalGov-Django/
 
 ## Features
 
@@ -67,12 +67,23 @@ pages/           # Homepage
 static/          # LocalGov Base theme CSS/JS/assets
 templates/       # Django templates using LocalGov markup
 tests/           # Unit and Playwright BDD tests
-docs/            # GitHub Pages landing page
+docs/            # MkDocs documentation (deployed to GitHub Pages)
 ```
 
 ## Styling
 
 CSS is copied directly from the [localgov_base](https://github.com/localgovdrupal/localgov_base) theme (2.x branch), including CSS custom properties, grid layout, and all component styles.
+
+## Documentation
+
+Full documentation is built with MkDocs and deployed to GitHub Pages.
+
+```bash
+pip install -r requirements-docs.txt
+mkdocs serve
+```
+
+Visit http://127.0.0.1:8000 to preview docs locally.
 
 ## License
 

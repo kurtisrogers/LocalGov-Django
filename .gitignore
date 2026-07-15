@@ -26,6 +26,9 @@ db.sqlite3
 media/
 staticfiles/
 
+# MkDocs build output
+site/
+
 # Virtual environments
 .venv/
 venv/

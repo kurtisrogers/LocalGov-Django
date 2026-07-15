@@ -1,0 +1,87 @@
+site_name: LocalGov Django Docs
+site_description: Documentation for LocalGov Django — open source publishing for local government
+site_url: https://kurtisrogers.github.io/LocalGov-Django/
+repo_url: https://github.com/kurtisrogers/LocalGov-Django
+repo_name: kurtisrogers/LocalGov-Django
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  logo: assets/favicon-32x32.png
+  favicon: assets/favicon.ico
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/kurtisrogers/LocalGov-Django
+
+plugins:
+  - search
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Home: index.md
+  - Overview: overview.md
+  - Roadmap: roadmap.md
+  - Getting started:
+    - Developers: devs/index.md
+    - Content designers: content/index.md
+  - Developers:
+    - devs/getting-started.md
+    - Features: devs/features/index.md
+    - Theme: devs/theme.md
+    - Testing: devs/testing.md
+    - Project structure: devs/project-structure.md
+  - Content:
+    - content/index.md
+    - Features: content/features/index.md
+    - Content types: content/features/content-types.md
+    - Services: content/features/services.md
+    - Directories: content/features/directories.md
+    - News: content/features/news.md
+    - Alert banners: content/features/alert-banners.md
+  - Contributing: contributing/index.md
